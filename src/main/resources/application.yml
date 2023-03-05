@@ -1,0 +1,58 @@
+# Spring Boot configuration
+spring:
+  application:
+    name: vralimetacao
+  profiles:
+    active: dev
+
+  # Security configuration
+  security:
+    user:
+      name: user
+      password: user
+
+  # Database
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/tallent
+    username: postgres
+    password: totvs@123
+
+  # JPA properties
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQL95Dialect
+    hibernate:
+      naming:
+        implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+          lob:
+            non_contextual_creation: true
+        hbm2ddl:
+          auto: "none"
+        show_sql: false
+        format_sql: false
+
+  # Cache configuration
+  cache:
+    type: ehcache
+
+# Logger configuration
+logging:
+  pattern:
+    console: "%d %-5level %logger : %msg%n"
+  level:
+    org.springframework: info
+    org.hibernate: debug
+
+# Server configuration
+server:
+  port: 8487
+
+# Flyway configuration
+flyway:
+  locations: classpath:db/migration
+  enabled: true
