@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin(maxAge = 3600)
 @AllArgsConstructor
 @RequestMapping(path = SequenciaController.PATH, produces = { MediaType.APPLICATION_JSON_VALUE })
-@Api(value = "Cartao")
+@Api(value = "Sequência do número")
 public class SequenciaController {
     public static final String PATH = "api/dellent/sequencia";
 
